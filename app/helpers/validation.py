@@ -10,7 +10,7 @@ def validateAffirmationForm(form: dict) -> dict:
     if not username or not isinstance(username, str):
         errors['username'] = "Username is required."
 
-    if mood and mood not in [m.value for m in MoodEnum]:
+    if not mood or mood and mood not in [m.value for m in MoodEnum]:
         errors['mood'] = "Invalid mood."
 
     if details is not None and not isinstance(details, str):
