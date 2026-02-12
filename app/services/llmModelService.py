@@ -6,7 +6,7 @@ client = OpenAI()
 
 SYS_PROMPT = """
 Based on the mood and optionally the details provided, generate a motivational affirmation.
-"""
+""".strip()
 
 def callLLM(mood: str, details: Optional[str] = None) -> str:
     prompt_text = f"User Mood: {mood}"
