@@ -1,0 +1,1 @@
+from .affirmationController import generate_affirmation

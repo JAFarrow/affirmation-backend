@@ -1,6 +1,7 @@
 from ..models import MoodEnum
+from ..errors import ValidationError
 
-def validateAffirmationForm(form: dict) -> dict:
+def validateAffirmationForm(form: dict) -> None:
     username = form.get('username', None)
     mood = form.get('mood', None)
     details = form.get('details', None)
@@ -16,4 +17,5 @@ def validateAffirmationForm(form: dict) -> dict:
     if details is not None and not isinstance(details, str):
         errors['details'] = "Details must be a string."
 
-    return errors
+    if errors:
+        raise ValidationError(errors)
