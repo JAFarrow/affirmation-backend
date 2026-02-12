@@ -4,9 +4,10 @@ from flask import jsonify
 from openai import APIConnectionError, APITimeoutError, APIError
 
 def generate_affirmation(data: dict) -> dict:
+    username = data.get('username')
     mood = data.get('mood')
     details = data.get('details', None)
-    response = callLLM(mood, details)
+    response = callLLM(username, mood, details)
 
     return structureResponse(
             success=True,
