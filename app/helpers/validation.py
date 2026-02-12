@@ -1,0 +1,19 @@
+from ..models import MoodEnum
+
+def validateAffirmationForm(form: dict) -> dict:
+    username = form.get('username', None)
+    mood = form.get('mood', None)
+    details = form.get('details', None)
+
+    errors = {}
+
+    if not username or not isinstance(username, str):
+        errors['username'] = "Username is required."
+
+    if mood and mood not in [m.value for m in MoodEnum]:
+        errors['mood'] = "Invalid mood."
+
+    if details is not None and not isinstance(details, str):
+        errors['details'] = "Details must be a string."
+
+    return errors
