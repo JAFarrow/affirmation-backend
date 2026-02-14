@@ -51,13 +51,13 @@ Create a `.env` file (or set via shell):
 
 ```bash
 OPENAI_API_KEY=your_api_key_here
-FRONTEND_ORIGIN=http://localhost:5173
+FRONTEND_URL=http://localhost:5173
 ```
 
 ### Required Variables
 
 - `OPENAI_API_KEY` — OpenAI API key (required)
-- `FRONTEND_ORIGIN` — allowed CORS origin for frontend
+- `FRONTEND_URL` — allowed CORS origin for frontend
 
 **Security Requirements**
 
@@ -91,7 +91,7 @@ gunicorn run:app
 
 ```
 OPENAI_API_KEY=<YOUR_SECRET>
-FRONTEND_ORIGIN=<YOUR_FRONTEND_URL>
+FRONTEND_URL=<YOUR_FRONTEND_URL>
 ```
 
 6. Deploy
